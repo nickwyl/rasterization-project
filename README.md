@@ -4,10 +4,24 @@ This program allows you to draw simple triangles interactively. You can insert, 
 
 The different functions are triggered based on different events. These events call their corresponding glfw callback functions, one of which is the key callback, so depending on which key the user presses, the callback function either sets a state or simply just, within the key callback function, executes what the user wants to do.
 
-To create a triangle, the user presses the key "i" and clicks three times on any point in the window. This is when a triangle is created:
+To create a triangle, the user presses the key "i" and clicks three times on any point in the window. All triangles are contained in one VBO. The program begins with a 2x3 matrix. The first triangle populates this matrix with the coordinates of its vertices. Then, when a user wants to create another triangle, the first click resizes the matrix, adding three more columns to the matrix for the next triangle, and so on.
+
+This is when a triangle is created:
 
 ![Triangle](https://github.com/nickwyl/rasterization-project/blob/master/images/triangle.png)
 
+To move a triangle, the user presses the key “o” and clicks on a triangle. While the mouse is held down, the triangle will turn from whatever color it is to blue and can be dragged anywhere. When the mouse is released, it will turn back to its original color (to be more explicit, the color of the vertices of the triangle will be preserved even after dragging the triangle around).
+
+This is when a triangle is selected:
+
+![Triangle Selected](https://github.com/nickwyl/rasterization-project/blob/master/images/triangle-clicked.png)
+
+To delete a triangle, the user presses the key “p” and selects a triangle. The three coordinates of the triangle are made the same, which turns into a point, so it will not be drawn.
+
+For both translating and deleting, the point at where the user click is determined if it’s within a triangle. I use barycentric coordinates to determine this.
+
+To scale a triangle, the user presses the key "h" to scale up and "j" to scale down. To rotate a triangle, the user presses the key "k" to rotate clockwise and "l" to rotate counter-clockwise.
+The code for this occurs within the key callback function. The barycenter of the selected triangle is calculated. For scaling, the triangle will scale with respect to the barycenter (vertices will grow or shrink WRT to barycenter). Similarly, the triangle will rotate with respect to the barycenter.
 
 ## Getting Started
 
