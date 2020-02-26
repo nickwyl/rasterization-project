@@ -10,9 +10,9 @@ You must install a C++ compiler and CMake (as a build system) before you can run
 
 To view the result, please clone or download this repository and follow the commands:
 
-1. Navigate to the rasterization-project directory and create a directory called build:
+1. Navigate to the proj directory and create a directory called build:
   ```
-  $ mkdir build
+  $ cd proj; mkdir build
   ```
 2. Use CMake to generate the Makefile/project files needed for compilation inside the build/ directory:
   ```
