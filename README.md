@@ -23,6 +23,13 @@ For both translating and deleting, the point at where the user click is determin
 To scale a triangle, the user presses the key "h" to scale up and "j" to scale down. To rotate a triangle, the user presses the key "k" to rotate clockwise and "l" to rotate counter-clockwise.
 The code for this occurs within the key callback function. The barycenter of the selected triangle is calculated. For scaling, the triangle will scale with respect to the barycenter (vertices will grow or shrink WRT to barycenter). Similarly, the triangle will rotate with respect to the barycenter.
 
+The user can also color a triangle by coloring its vertices. To enable coloring mode, the user presses the key "c" and clicks the mouse. The vertex closest to the mouseclick will be selected, and the user can then color the vertex by pressing keys "1" to "9", each of which is a different color. The colors of the vertices are linearly interpolated. In the key callback function, there are nine different cases, from 1-9, for different colors. I created a matrix (named VC) and a second VBO (named VBOC) to store the attributes of the color. A “color” vector is passed in and a “vColor” vector is passed out of the vertex shader. A “vertexColor” vector is passed in and an “outColor” vector is passed out of the vertex shader. A few lines below, I connect the VBOC I defined with the position “color” in the vertex shader. The user can click anywhere to color a vertex, as the program will help find the nearest vertex of any triangle to where was clicked.
+
+This is when a triangle is colored by the user:
+
+![Colored Triangle](https://github.com/nickwyl/rasterization-project/blob/master/images/triangle-colored.png)
+
+
 ## Getting Started
 
 You must install a C++ compiler and CMake (as a build system) before you can run the program. You may install CMake with a package manager; if on Debian/Ubuntu use ```$ sudo apt-get install cmake```, if on Mac use ```brew install cmake```, if on Windows use ```choco install -y cmake```.
