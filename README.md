@@ -5,7 +5,7 @@ This program allows you to draw simple triangles interactively. You can insert, 
 The different functions are triggered based on different events. These events call their corresponding glfw callback functions, one of which is the key callback, so depending on which key the user presses, the callback function either sets a state or simply just, within the key callback function, executes what the user wants to do.
 
 To create a triangle, the user presses the key "i" and clicks three times on any point in the window. This is when a triangle is created:
-!(https://github.com/nickwyl/rasterization-project/blob/master/images/triangle.png)
+![Triangle](https://github.com/nickwyl/rasterization-project/blob/master/images/triangle.png)
 
 
 ## Getting Started
