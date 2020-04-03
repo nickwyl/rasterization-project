@@ -29,6 +29,8 @@ This is when a triangle is colored by the user:
 
 ![Colored Triangle](https://github.com/nickwyl/rasterization-project/blob/master/images/triangle-colored.png)
 
+This project uses OpenGL 3.3 with GLSL version 150 and relies on GLFW.
+
 
 ## Getting Started
 
